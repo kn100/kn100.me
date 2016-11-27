@@ -1,0 +1,151 @@
+<!--container-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Kevin Norman - Software Engineer</title>
+
+  <!-- Bootstrap -->
+  <link href="https://fonts.googleapis.com/css?family=Maven+Pro" rel="stylesheet">
+  <link href="css/app.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+</head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Kevin Norman</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html">Projects</a></li>
+        <li><a href="http://github.com/kn100">Github</a></li>
+        <li><a href="http://linkedin.com/in/kevin-norman">Linkedin</a></li>
+        <li><a href="https://twitter.com/normankev141/">Twitter</a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="preview" preview="" debounce="150"><h1><a id="World_Explorer_0"></a>World Explorer</h1>
+<p>This project provides you with two main scripts. The first is a player controller which was designed with the Oculus Rift DK2 in mind, but should work perfectly with more modern hardware. This player controller will attempt to keep the player locked to the surface of whatever three dimensional shape they are walking on, similar to Super Mario Galaxy.<br>
+<h2>Video demos</h2>
+For some video demos of it in action, please see these three videos:</p>
+<div class="vidwidth">
+<div class="embed-responsive embed-responsive-16by9" >
+<iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/SDkdGDm5BXc"></iframe>
+</div>
+<p><a href="https://www.youtube.com/watch?v=SDkdGDm5BXc">Video demo showing a demo built as part of my Dissertation</a></p>
+<div class="embed-responsive embed-responsive-16by9" >
+<iframe class="embed-responsive-item"  src="https://www.youtube.com/embed/9096Hdaeh0M"></iframe>
+</div>
+<p><a href="https://www.youtube.com/watch?v=9096Hdaeh0M">Video that was created to play in the background of a project fair, explaining how it works - also user testing with the Rift</a></p>
+<div class="embed-responsive embed-responsive-16by9" >
+<iframe class="embed-responsive-item"  src="https://youtube.com/embed/tIEHX5wSVyE"></iframe>
+</div>
+<p><a href="https://youtu.be/tIEHX5wSVyE">Video showcasing the latest build of the software, as well as scene view</a></p>
+</div>
+<h2>Download it </h2>
+<p class="lead">You can download it from Github, <a href="http://github.com/kn100/worldEx">here</a></p>.
+<h2>Assets</h2>
+<h3>A player controller that:</h3>
+<ul>
+<li>Allows for forwards, backwards, and rotation motion</li>
+<li>Keeps the player locked to the surface of any given geometry, provided that it has a mesh collider (Think Super Mario Galaxy)</li>
+<li>Is compatible with VR headsets - tested with Oculus Home and Rift DK2.</li>
+</ul>
+<h3>A Virtual Reality User Interface controller script that:</h3>
+<ul>
+<li>Implements a gaze pointer type interface, where the user looks at three dimensional objects in order to select them</li>
+<li>Follows Googles’ guidelines on VR interfaces</li>
+<li>Describes an interface (IObjectAction) that can be implemented in scripts attached to 3D objects either generated during development or pragmatically, to allow for totally new interfaces</li>
+<li>Implements a non-blocking timer that is used to decide if the user has been looking at an element long enough</li>
+<li>Displays said timer in three dimensional space to the user wearing the headset.</li>
+</ul>
+<h2>Quickstart</h2>
+To get started</p>
+<ol>
+<li>Clone the repository</li>
+<li>Open the ‘World Explorer’ folder within the repo as a project with Unity.</li>
+<li>Hit Play in Unity and use your standard method of control! Feel free to build on this scene.</li>
+</ol>
+<h2>Implementation details<h2>
+<h3>Creating a new scene</h3>
+<ol>
+<li>Create a Capsule, and give it a Rigidbody, disabling Gravity. Add a Camera as a child of this Capsule and ensure its’ position is set sensibly; (0,0,0) is usually a good bet.</li>
+<li>Attach the genericWalker script provided to this Capsule.</li>
+<li>If user interface is desired, Firstly attach CameraLookAtUI to the player camera.</li>
+<li>Tag the game object you wish to do something if the user looks at it with either “Major” or “Minor”. This distinction allows you to set two separate activation delays for these two different classes of object.</li>
+<li>To define the action you want to take place when the game object is looked at, Create a new C# script called whatever you like, and implement IObjectAction, concretely defining activate() - where your action takes place.<br>
+</ol>
+<h4>Example</h4>
+<pre><code>    Example which selects a different scene:
+
+    using UnityEngine;
+    using System.Collections;
+    using UnityEngine.SceneManagement;
+
+    public class goHome : MonoBehaviour,IObjectAction
+    {
+    // Use this for initialization
+    void Start () {
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+    }
+    public void activate()
+    {
+        SceneManager.LoadScene(0);
+    }
+</code></pre>
+<h2>Licence</h2>
+<pre><code>    Copyright (c) 2016 Kevin Norman.
+
+    Permission is hereby granted, free of charge, to any person obtaining
+    a copy of this software and associated documentation files (the "Software"),
+    to deal in the Software without restriction, including without limitation
+    the rights to use, copy, modify, merge, publish, distribute, sublicense,
+    and/or sell copies of the Software, and to permit persons to whom the Software
+    is furnished to do so, subject to the following conditions:
+
+    The above copyright notice and this permission notice shall be included in
+    all copies or substantial portions of the Software.
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+    EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+    OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+    CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+    TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE
+    OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+</code></pre>
+<h2>Contact me</h2>
+Twitter is your best bet, Feel free to leave hate mail at <a href="http://twitter.com/normankev141">@normankev141.</a></p>
+</div></div></div></div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/app.min.js"></script>
+</body>
+</html>
+<!-- /build -->

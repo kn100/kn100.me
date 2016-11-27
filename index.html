@@ -1,46 +1,13 @@
+<!--container-->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Kevin Norman - Software Engineer</title>
-
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/app.css" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
+  <!-- build:include templates/head.tmpl -->
+  Missing head template
+  <!-- /build -->
   <body>
-    <nav class="navbar navbar-default navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Kevin Norman</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/">About</a></li>
-            <li class="active"><a href="./">Projects <span class="sr-only">(current)</span></a></li>
-            <li><a href="../navbar-fixed-top/">Github</a></li>
-            <li><a href="../navbar-fixed-top/">Linkedin</a></li>
-            <li><a href="../navbar-fixed-top/">Twitter</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+    <!-- build:include templates/header.tmpl -->
+    Missing header/menu template
+    <!-- /build -->
     <div class="container">
       <div class="row">
         <div class="col-xs-12">
@@ -55,21 +22,64 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-xs-4">
-          Project 1
+        <div class="col-sm-6 project">
+          <div class="project-header">
+            World Explorer
+          </div>
+          <img src="img/play.png" class="project-play"/>
+          <img src="img/p1.jpg" class="img-responsive project-picture"/>
+
+          <div align="center" class="project-video embed-responsive embed-responsive-16by9">
+            <video loop class="embed-responsive-item">
+                <source src="img/p1.webm" type=video/webm>
+            </video>
+          </div>
+          <div class="project-body">
+            <p class="lead">
+              Software which allows the user to explore surfaces of non spheroidal shapes in three-space.
+            </p>
+            <ul>
+              <li>Compatible with the Oculus Rift DK2 and CV1</li>
+              <li>Works with any geometry with a reasonably well behaved surface </li>
+              <li>Written in C# using UnityEngine and LibOVR</li>
+              <li>Developed a simple but effective hands free virtual reality user interface system
+              <li>Open source, and the code is available on Github!</li>
+            </ul>
+            <div class="project-read-more text-right">
+              <a href="worldex.html" class="lead">Read more</a>
+            </div>
+          </div>
         </div>
-        <div class="col-xs-4">
-          Project 2
-        </div>
-        <div class="col-xs-4">
-          Project 3
+        <div class="col-sm-6 project">
+          <div class="project-header">
+            Studio 9 Wall art
+          </div>
+          <img src="img/play.png" class="project-play"/>
+          <img src="img/p2.jpg" class="img-responsive project-picture"/>
+          <div align="center" class="project-video embed-responsive embed-responsive-16by9">
+            <video loop class="embed-responsive-item">
+                <source src="img/p2.webm" type=video/webm>
+            </video>
+          </div>
+          <div class="project-body">
+            <p class="lead">
+              A completely custom e-commerce platform with a truly 30 second order process.
+            </p>
+            <ul>
+              <li>I developed the front-end component, delivering a fast-loading, beautiful experience</li>
+              <li>Developed using Grunt, NPM, HTML5, CSS3, Jquery, etc</li>
+              <li>Processed thousands of pounds worth of transactions</li>
+              <li>Worked with another freelance developer, who developed the back-end</li>
+              <li>Dabbled with Golang to ship my own features</li>
+            </ul>
+            <div class="project-read-more text-right">
+              <a href="https://studio9wallart.co.uk/" class="lead">Visit website</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
-</html>
+    <!-- build:include templates/footer.tmpl -->
+    Missing footer definition
+    <!-- /build -->
+    <!-- /build -->

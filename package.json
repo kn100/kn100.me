@@ -1,0 +1,19 @@
+{
+  "name": "kn100me",
+  "version": "1.0.0",
+  "description": "Awesome project",
+  "devDependencies": {
+    "grunt-browser-sync": "^2.2.0",
+    "grunt-browserify": "^5.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-htmlmin": "^2.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-html-template": "^0.1.5",
+    "grunt-processhtml": "^0.4.1",
+    "grunt-uncss": "^0.6.1"
+  }
+}
